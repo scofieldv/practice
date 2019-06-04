@@ -1,0 +1,58 @@
+test1 =[]
+test2 =[]
+test3 =[]
+namelist = []
+total = 0
+totalList = []
+highest = 0
+locationOfHighest = 0
+
+while True:
+    try:
+        numOfStudent = int(input("\n\nType the number of student\n"))
+        break
+    except ValueError:
+        print('\nThe number of student must be in number\n')
+
+def insertName():
+    name = input('\nInput the student name\n')
+    namelist.append(name)
+    return(namelist)
+
+def function(trantest, testnumber, max):
+        while True:
+                 try:   
+                     transcore = int(input( '\nType the score of test {}\n'.format(testnumber)))
+                     if transcore >= 0 and transcore <= max:
+                          print('\naccept\n')
+                          break
+                     else:
+                         print('\nType again\nTest {} is out of {} marks\n'.format(testnumber, max))
+                 except Exception:  
+                     print('\nType again\n')
+        trantest.append(transcore)
+        return trantest
+
+for i in range(numOfStudent):
+    insertName()
+    function(test1, 1,20)
+    function(test2, 2,25)
+    function(test3, 3,35)
+   
+    total = test1[i] + test2[i] + test3[i]
+    if total > highest:
+        highest = total
+        locationOfHighest = i
+    totalList.append(total)
+   
+print('\n\nTotal average is ', sum(totalList)/numOfStudent , 'out of 80')
+print('\nAverage of the first test is ', sum(test1)/numOfStudent, 'out of 20')
+print('\nAverage of the second test is ', sum(test2)/numOfStudent, 'out of 25')
+print('\nAverage of the second test is ', sum(test3)/numOfStudent, 'out of 35')
+print('\n\n----------------------------------------------------------------------------------------------------------------')
+
+for i in range(numOfStudent):
+    print('\n\nStudent : ', namelist[i], '\nFirst test : ', test1[i], '\nSecond test : ', test2[i], '\nThird test : ', test3[i], '\nTotal mark : ', totalList[i], '\n\n')  
+
+print('---------------------------------------------------------------------------------------------------------------\n\n')
+print(namelist[locationOfHighest], 'has the highest score\nThe score is ', highest, 'out of 80\n\n\n')
