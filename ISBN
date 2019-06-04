@@ -1,0 +1,56 @@
+#This code checks if the ISBN code is acceptable or not
+
+sum = 0 #value of [a,b,c,d,e,f,g,h,i]*[1,2,3,4,5,6,7,8,9]
+check = 1 #vlaue of check digit in ISBN code
+#Its initial value is 1 because sum%11 shouldn't be equal to check initially because(look at the bottom)
+while not(sum%11 == check): #If sum%11 is equal to check, it will get out of the loop
+    sum = 0 #initializing sum inside the loop
+    print("\n\nISBE number form : XXXXXXXXX - X")
+    
+    
+    
+    
+#VALIDATION FOR INFORMATION DIGIT
+    
+    while True:
+        try:
+            inform = str(input("\n\nInformation Digit(9 digits) :")) #Inputing Information digit
+            for i in range(len(inform)): #checking if all the digits are numbers
+                int(inform[i]) #If there is (a) letter, there will be ValueError --> will have to input again
+            if  len(inform)==9: #If length if the Information digit 9, you will get out of the validation
+#What if 'Inform' has letter and has 9 digits? --> It won't able to come to this 'If' loop because value error will occur first
+                break
+            else: #If it doesn't have 9 digits, it will print this
+                print("\n\n9 Digits!!!")
+        except ValueError: #If there is value error, it will print this
+            print('\n\nOnly Numbers!!!')
+            
+            
+            
+            
+#VALIDATION FOR CHECK DIGIT
+            
+#Validation for Check digit has same princible with validation for information digit             
+            
+    while True:
+        Try:
+            check =  str(input("\n\nCheeeck Digit(1 digit) :"))
+            for i in range(len(check)):
+                int(check[i])
+            if  len(check) == 1:
+                break
+            else:
+                print("\n\nOnly 1 Digit!!!")
+        except ValueError:
+            print('\n\nType again')
+            
+
+
+#CHECKING CHECK DIGIT (checking if sum%11 is equal to check digit)
+            
+    for i in range(9): #[a,b,c,d,e,f,g,h,i]*[1,2,3,4,5,6,7,8,9]
+        sum = sum+int(inform[i])*(i+1) 
+    if n(sum%11 == int(check)):
+        print("\n\nType again")
+    if sum%11 == int(check):
+        break
